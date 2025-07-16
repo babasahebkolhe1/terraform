@@ -1,3 +1,4 @@
+#terraform provider configuration for Azure
 terraform {
   required_providers {
     azurerm = {
@@ -7,6 +8,8 @@ terraform {
   }
 }
 
+# Azure provider configuration
+# Replace the empty strings with your Azure credentials
 provider "azurerm" {
   subscription_id = ""
   client_id = ""
@@ -17,18 +20,18 @@ provider "azurerm" {
   }
 }
 
-
+#resource group creation
 resource "azurerm_resource_group" "RG" {
   name     = "myrg"
   location = "West Europe"
 }
 
+# Virtual Network creation
 resource "azurerm_virtual_network" "vnet" {
   name                = "vnet1"
   location            = "West Europe"
   resource_group_name = "myrg"
   address_space       = ["10.0.0.0/16"]
-
   subnet {
     name             = "subnet1"
     address_prefixes = ["10.0.1.0/24"]
