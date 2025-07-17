@@ -7,7 +7,6 @@ terraform {
     }
   }
 }
-
 # Azure provider configuration
 # Replace the empty strings with your Azure credentials
 provider "azurerm" {
